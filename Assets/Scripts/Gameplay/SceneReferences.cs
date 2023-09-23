@@ -8,25 +8,30 @@ namespace Gameplay
     /// </summary>
     public class SceneReferences : MonoBehaviour
     {
-        [SerializeField] UnitModel leftPlayer;
-        [SerializeField] UnitModel rightPlayer;
+        [SerializeField] private UnitModel[] units = new UnitModel[2];
+
         private void Awake()
         {
             ValidateReferences();
         }
+
         private void ValidateReferences()
         {
-            if (leftPlayer == null)
+            if (LeftPlayer == null)
                 throw new UnassignedReferenceException("Assign reference to left player from inspector.");
-            if (rightPlayer == null)
+            if (RightPlayer == null)
                 throw new UnassignedReferenceException("Assign reference to right player from inspector.");
         }
 
         internal UnitModel GetOppositeUnitTo(UnitModel senderUnit)
         {
-            if (senderUnit.Equals(leftPlayer))
-                return rightPlayer;
-            return leftPlayer;
+            if (senderUnit.Equals(LeftPlayer))
+                return RightPlayer;
+            return LeftPlayer;
         }
+
+        public UnitModel LeftPlayer => units[0];
+        public UnitModel RightPlayer => units[1];
+        public UnitModel[] Units => units;
     }
 }

@@ -75,11 +75,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2283861945934598566, guid: 02ec19855f80bd64680d9c94f20cb19d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 315
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 2283861945934598566, guid: 02ec19855f80bd64680d9c94f20cb19d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 155
       objectReference: {fileID: 0}
     - target: {fileID: 2283861945934598566, guid: 02ec19855f80bd64680d9c94f20cb19d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -473,9 +473,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.359774
       objectReference: {fileID: 0}
+    - target: {fileID: 114398422050144096, guid: 97b60363519ab6d44b9795d22e90a803, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1641275450017665535, guid: 97b60363519ab6d44b9795d22e90a803, type: 3}
       propertyPath: m_Name
       value: LeftArmorBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544243209667281306, guid: 97b60363519ab6d44b9795d22e90a803, type: 3}
+      propertyPath: m_text
+      value: 0/100
       objectReference: {fileID: 0}
     - target: {fileID: 6276203466181483594, guid: 97b60363519ab6d44b9795d22e90a803, type: 3}
       propertyPath: m_Pivot.x
@@ -587,9 +595,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.55022794
       objectReference: {fileID: 0}
+    - target: {fileID: 114398422050144096, guid: 97b60363519ab6d44b9795d22e90a803, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1641275450017665535, guid: 97b60363519ab6d44b9795d22e90a803, type: 3}
       propertyPath: m_Name
       value: LeftVampyrismBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544243209667281306, guid: 97b60363519ab6d44b9795d22e90a803, type: 3}
+      propertyPath: m_text
+      value: 0/100
       objectReference: {fileID: 0}
     - target: {fileID: 6276203466181483594, guid: 97b60363519ab6d44b9795d22e90a803, type: 3}
       propertyPath: m_Pivot.x

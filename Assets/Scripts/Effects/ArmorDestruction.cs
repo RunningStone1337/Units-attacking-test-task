@@ -8,8 +8,12 @@ namespace Units
     [Serializable]
     public class ArmorDestruction : EffectBase, IAttackMomentEffect
     {
-        const int ARMOR_DECREASE_VALUE = 10;
-        public ArmorDestruction(UnitModel thisUnit) : base(thisUnit) { }
+        private const int ARMOR_DECREASE_VALUE = 10;
+
+        public ArmorDestruction(UnitModel thisUnit, int effectDuration) : base(thisUnit, effectDuration)
+        {
+        }
+
         public void ApplyEffectTo(UnitModel target)
         {
             target.Armor -= ARMOR_DECREASE_VALUE;

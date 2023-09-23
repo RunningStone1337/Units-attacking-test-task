@@ -1,34 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using Units;
 using UnityEngine;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// Обработчик коллбеков на события ввода сцены игрового цикла.
+    /// </summary>
     public class UserInputHandler : MonoBehaviour
     {
-        [SerializeField] GameLoop loop;
-        [SerializeField] SceneReferences references;
+        [SerializeField] private GameLoop loop;
+        [SerializeField] private SceneReferences references;
+
+        public void OnApplyEffectButtonClick(UnitModel senderUnit)
+        {
+            if (loop.CanUnitPerformAction(LoopActionType.ApplyEffect, senderUnit))//допустимо ли действие правилами игры
+            {
+                if (senderUnit.TryApplyRandomEffect())//доступно ли действие юниту
+                {
+                    loop.UpdateLoop(LoopActionType.ApplyEffect, senderUnit);
+                }
+            }
+        }
+
         public void OnAttackButtonClick(UnitModel senderUnit)
         {
-             UnitModel target = references.GetOppositeUnitTo(senderUnit);
+            UnitModel target = references.GetOppositeUnitTo(senderUnit);
             if (loop.CanUnitPerformAction(LoopActionType.Attack, senderUnit))//допустимо ли действие правилами игры
             {
                 if (senderUnit.TryAttack(target))//доступно ли действие юниту
                 {
-                    loop.UpdateLoop(LoopActionType.Attack, target);
+                    loop.UpdateLoop(LoopActionType.Attack, senderUnit);
                 }
             }
         }
-        public void OnApplyButtonClick(UnitModel senderUnit)
+
+        public void OnRestartButtonClick()
         {
-            if (loop.CanUnitPerformAction(LoopActionType.ApplyBuff, senderUnit))//допустимо ли действие правилами игры
-            {
-                if (senderUnit.TryApplyRandomBuff())//доступно ли действие юниту
-                {
-                    loop.UpdateLoop(LoopActionType.ApplyBuff, senderUnit);
-                }
-            }
+            loop.StartNewGame();
         }
     }
 }

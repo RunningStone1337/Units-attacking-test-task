@@ -8,8 +8,12 @@ namespace Units
     [Serializable]
     public class VampirismDecrease : EffectBase, IAttackMomentEffect
     {
-        const int VAMPIRISM_DECREASE_VALUE = 25;
-        public VampirismDecrease(UnitModel thisUnit) : base(thisUnit) { }
+        private const int VAMPIRISM_DECREASE_VALUE = 25;
+
+        public VampirismDecrease(UnitModel thisUnit, int effectDuration) : base(thisUnit, effectDuration)
+        {
+        }
+
         public void ApplyEffectTo(UnitModel target)
         {
             target.Vampirism -= VAMPIRISM_DECREASE_VALUE;

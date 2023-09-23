@@ -6,21 +6,20 @@ namespace Units
     /// +50 брони
     /// </summary>
     [Serializable]
-    public class ArmorSelf : EffectBase, ICommand, ISelfTargetEffect
+    public class ArmorSelf : AdditionTimeEffectBase
     {
-        const int ARMOR_VALUE = 50;
-        public ArmorSelf(UnitModel unit) : base(unit) { }
+        private const int ARMOR_VALUE = 50;
 
-        public void ApplyEffect()
+        public ArmorSelf(UnitModel unit, int effectDuration) : base(unit, effectDuration)
         {
-            DoCommand();
         }
-        public void DoCommand()
+
+        public override void ExecuteCommand()
         {
             unit.Armor += ARMOR_VALUE;
         }
 
-        public void UndoCommand()
+        public override void UndoCommand()
         {
             unit.Armor -= ARMOR_VALUE;
         }

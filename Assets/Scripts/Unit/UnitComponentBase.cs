@@ -8,9 +8,10 @@ namespace Units
     /// Базовый класс подсистемы юнита: здоровья, атаки, брони, вампиризма, etc
     /// </summary>
     [Serializable]
-    public abstract class UnitComponentBase 
+    public abstract class UnitComponentBase
     {
         [SerializeField] protected UnitModel unit;
+
         protected UnitComponentBase(UnitModel thisUnit)
         {
             unit = thisUnit;
@@ -24,11 +25,11 @@ namespace Units
         /// <param name="maxValue"></param>
         /// <param name="changedValueEvent"></param>
         /// <returns></returns>
-        protected int TryRefreshValue(int currentValue, int newValue, int maxValue, UnityEvent<int> changedValueEvent = default)
+        protected int TryRefreshValue(int currentValue, int newValue, int maxValue, UnityEvent<int, int> changedValueEvent = default)
         {
             newValue = Mathf.Clamp(newValue, 0, maxValue);
             if (newValue != currentValue)
-                changedValueEvent?.Invoke(newValue);
+                changedValueEvent?.Invoke(newValue, maxValue);
             return newValue;
         }
     }
